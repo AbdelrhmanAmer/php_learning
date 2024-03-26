@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!--
+            Some rules to follow for the HTML form:
+            Make sure that the form uses method="post"
+            The form also needs the following attribute: enctype="multipart/form-data". 
+            It specifies which content-type to use when submitting the form
+        -->
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            Select image to uplaod:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Uplaod Image" name="submit">
+        </form>
+    </body>
+</html>

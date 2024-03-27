@@ -33,10 +33,12 @@ session_start();
             // modify session variable
             $_SESSION["favcolor"] = "yellow";
 
-
-            // To Remove all global session variables
-            // and destroy the session
+            
+            
+            // To Remove all global session variables and destroy the session
+            
             session_unset(); // remove all session variables
+            
             print_r($_SESSION);
             // output: Array ()
 

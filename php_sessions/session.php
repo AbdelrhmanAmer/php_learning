@@ -26,10 +26,21 @@ session_start();
             $_SESSION["favcolor"] = "green";
             $_SESSION["favanimal"] = "cat";
             echo "Session variables are set.";
-            print_r($_SESSION);
+            print_r($_SESSION); 
+            //output: Array ([favcolor] => green [favanimal] => cat )
+
 
             // modify session variable
             $_SESSION["favcolor"] = "yellow";
+
+
+            // To Remove all global session variables
+            // and destroy the session
+            session_unset(); // remove all session variables
+            print_r($_SESSION);
+            // output: Array ()
+
+            session_destroy(); // destroy the session
         ?>
     </body>
 </html>

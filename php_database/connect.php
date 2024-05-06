@@ -7,7 +7,7 @@ $Conn = mysqli_connect('localhost', 'root', '')
 mysqli_select_db($Conn, 'phptestdb')
     or die('database will not open' .mysqli_errno($Conn));
 
-print('Database Connected.');
+echo "<br>";
 
 $sql = "SELECT * FROM LAWYER";
 $result = mysqli_query($Conn, $sql)
@@ -15,9 +15,12 @@ $result = mysqli_query($Conn, $sql)
 
 $resultView = '';
 
-while ($row = $result->fetch_assoc()) {
-    $resultView .=
-        '<br>' . $row['LawyerID']
+$num = mysqli_num_rows($result);
+
+for($i= 1; $i<=$num; $i++) {
+    $resultView .= 
+        $i
+        . ' ' . $row['LawyerID']
         . ' ' . $row['LawyerName']
         . ' ' . $row['LawyerAddress']
         . ' ' . $row['Specialty']

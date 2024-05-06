@@ -16,7 +16,14 @@ class Fruit
     {
         return $this->name;
     }
+
+    function __destruct()
+    {
+        echo "The fruit is {$this->name}";
+    }
 }
 
 $fruit1 = new Fruit("Orange");
 echo $fruit1->get_name(); // Orange
+echo "<br>";
+

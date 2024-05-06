@@ -7,13 +7,14 @@ $Conn = mysqli_connect('localhost', 'root', '')
 mysqli_select_db($Conn, 'phptestdb')
     or die('database will not open' .mysqli_errno($Conn));
 
-echo "<br>";
-
 $sql = "SELECT * FROM LAWYER";
 $result = mysqli_query($Conn, $sql)
     or die("Invalid Query");
 
 $resultView = '';
+
+$numFields = mysqli_num_fields($result);
+echo "Number of fields in<br>    Lawyer Table is: {$numFields} <br><br>"; // 4
 
 $num = mysqli_num_rows($result);
 

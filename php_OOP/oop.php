@@ -10,4 +10,8 @@
             return $this->name;
         }
     }
+
+    $fruit1 = new Fruit();
+    $fruit1->set_name("Apple");
+    echo $fruit1->get_name();       
 ?>

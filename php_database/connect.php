@@ -23,5 +23,9 @@ while ($row = $result->fetch_assoc()) {
         . ' ' . $row['Specialty']
         . '<br>';
 }
+mysqli_free_result($result); // frees up memory during a program
+
 echo $resultView;
+
+mysqli_close($Conn);
 

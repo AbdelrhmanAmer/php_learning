@@ -18,6 +18,8 @@ $resultView = '';
 $num = mysqli_num_rows($result);
 
 for($i= 1; $i<=$num; $i++) {
+    $row = mysqli_fetch_row($result);
+    
     $resultView .= 
         $i
         . ' ' . $row['LawyerID']

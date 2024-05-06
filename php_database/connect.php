@@ -9,3 +9,19 @@ mysqli_select_db($Conn, 'phptestdb')
 
 print('Database Connected.');
 
+$sql = "SELECT * FROM LAWYER";
+$result = mysqli_query($Conn, $sql)
+    or die("Invalid Query");
+
+$resultView = '';
+
+while ($row = $result->fetch_assoc()) {
+    $resultView .=
+        '<br>' . $row['LawyerID']
+        . ' ' . $row['LawyerName']
+        . ' ' . $row['LawyerAddress']
+        . ' ' . $row['Specialty']
+        . '<br>';
+}
+echo $resultView;
+

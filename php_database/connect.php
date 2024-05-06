@@ -19,13 +19,11 @@ $num = mysqli_num_rows($result);
 
 for($i= 1; $i<=$num; $i++) {
     $row = mysqli_fetch_row($result);
-    
-    $resultView .= 
-        $i
-        . ' ' . $row['LawyerID']
-        . ' ' . $row['LawyerName']
-        . ' ' . $row['LawyerAddress']
-        . ' ' . $row['Specialty']
+
+    $resultView .= $row[0]
+        . ' ' . $row[1]
+        . ' ' . $row[3]
+        . ' ' . $row[4]
         . '<br>';
 }
 mysqli_free_result($result); // frees up memory during a program

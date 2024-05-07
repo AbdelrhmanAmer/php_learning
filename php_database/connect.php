@@ -2,10 +2,10 @@
 
 $name = '%';
 $Conn = mysqli_connect('localhost', 'root', '')
-    or die('No Connection: ' .mysqli_errno($Conn));
+    or die('No Connection: ' . mysqli_errno($Conn));
 
 mysqli_select_db($Conn, 'phptestdb')
-    or die('database will not open' .mysqli_errno($Conn));
+    or die('database will not open' . mysqli_errno($Conn));
 
 $sql = "SELECT * FROM LAWYER";
 $result = mysqli_query($Conn, $sql)
@@ -13,19 +13,28 @@ $result = mysqli_query($Conn, $sql)
 
 $resultView = '';
 
-// number of rows.
 $num = mysqli_num_rows($result);
 
-while($row = mysqli_fetch_array($result)) {
-    $resultView .= $row['LawyerID']
-        . ' ' . $row['LawyerName']
-        . ' ' . $row['LawyerAdress']
-        . ' ' . $row['LawyerSpecialty']
-        . '<br>';
+echo "<table border='1'>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Specialty</th>
+    </tr>";
+
+for ($i = 0; $i < $num; $i++) {
+    $row = mysqli_fetch_row($result);
+
+    echo "<tr>
+            <td>" .$row[0]. "</td>
+            <td>" .$row[1]. "</td>
+            <td>" .$row[2]. "</td>
+            <td>" .$row[3]. "</td>
+         </tr>";
 }
-mysqli_free_result($result); // frees up memory during a program
+echo "</table>";
 
+mysqli_free_result($result);
 echo $resultView;
-
 mysqli_close($Conn);
-

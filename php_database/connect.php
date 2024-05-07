@@ -13,18 +13,14 @@ $result = mysqli_query($Conn, $sql)
 
 $resultView = '';
 
-$numFields = mysqli_num_fields($result);
-echo "Number of fields in<br>    Lawyer Table is: {$numFields} <br><br>"; // 4
-
+// number of rows.
 $num = mysqli_num_rows($result);
 
-for($i= 1; $i<=$num; $i++) {
-    $row = mysqli_fetch_row($result);
-
-    $resultView .= $row[0]
-        . ' ' . $row[1]
-        . ' ' . $row[3]
-        . ' ' . $row[4]
+while($row = mysqli_fetch_array($result)) {
+    $resultView .= $row['LawyerID']
+        . ' ' . $row['LawyerName']
+        . ' ' . $row['LawyerAdress']
+        . ' ' . $row['LawyerSpecialty']
         . '<br>';
 }
 mysqli_free_result($result); // frees up memory during a program
